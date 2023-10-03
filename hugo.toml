@@ -1,0 +1,25 @@
+baseURL = 'https://briansemrau.github.io/'
+languageCode = 'en-us'
+title = "Brian Semrau's Developer Blog"
+author = "Brian Semrau"
+copyright = "Copyright © 2023, Brian Semrau."
+theme = 'hugo-bearblog'
+
+enableRobotsTXT = true
+
+disableKinds = ["taxonomy"]
+ignoreErrors = ["error-disable-taxonomy"]
+
+enableGitInfo = true
+
+[permalinks]
+  blog = "/:slug/"
+  tags = "/blog/:slug"
+
+[params]
+  hideMadeWithLine = true
+  dateFormat = "Jan 2, 2006"
+
+[frontmatter]
+  date = ["date", "publishDate"]
+  lastmod = ["lastmod", ":git", "date", "publishDate"]
