@@ -3,7 +3,7 @@ title = "Ghost Collisions"
 date = "2023-10-03T10:45:26-04:00"
 description = "How to solve the 2D physics ghost collision problem in Box2D with presolve hooks."
 tags = ["box2d", "c++", "godot", "winterpixel", "goober dash"]
-draft = true
+draft = false
 +++
 
 # Another solution to the 2D platformer Ghost Collision problem
