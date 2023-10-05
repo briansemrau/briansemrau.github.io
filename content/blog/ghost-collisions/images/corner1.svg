@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="250" viewBox="0 0 300 250">
+<path fill-rule="nonzero" fill="rgb(0%, 70%, 0%)" fill-opacity="0.05" stroke-width="3" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 70%, 0%)" stroke-opacity="0.2" stroke-miterlimit="10" d="M 50 150 L 147 150 L 147 247 L 50 247 Z M 50 150 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 70%, 0%)" fill-opacity="0.25" stroke-width="3" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 70%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 150 150 L 247 150 L 247 247 L 150 247 Z M 150 150 "/>
+<path fill-rule="nonzero" fill="rgb(100%, 50%, 50%)" fill-opacity="0.25" stroke-width="3" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(100%, 50%, 50%)" stroke-opacity="1" stroke-miterlimit="10" d="M 115 30 L 172 30 L 172 157 L 115 157 Z M 115 30 "/>
+<path fill="none" stroke-width="3" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(100%, 100%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M -153 160 L -138 160 " transform="matrix(0.000000000000000061, -1, 1, 0.000000000000000061, 0, 0)"/>
+<path fill-rule="nonzero" fill="rgb(100%, 100%, 0%)" fill-opacity="1" d="M 160 128 L 155 138 L 165 138 Z M 160 128 "/>
+<path fill="none" stroke-width="3" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(80%, 80%, 20%)" stroke-opacity="0.15" stroke-miterlimit="10" d="M -153 133 L -138 133 " transform="matrix(0.000000000000000061, -1, 1, 0.000000000000000061, 0, 0)"/>
+<path fill-rule="nonzero" fill="rgb(80%, 80%, 20%)" fill-opacity="0.15" d="M 133 128 L 128 138 L 138 138 Z M 133 128 "/>
+</svg>

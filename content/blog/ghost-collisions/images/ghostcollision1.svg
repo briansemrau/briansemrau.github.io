@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="250" viewBox="0 0 300 250">
+<path fill-rule="nonzero" fill="rgb(0%, 70%, 0%)" fill-opacity="0.25" stroke-width="3" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 70%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 50 150 L 147 150 L 147 247 L 50 247 Z M 50 150 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 70%, 0%)" fill-opacity="0.25" stroke-width="3" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 70%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 150 150 L 247 150 L 247 247 L 150 247 Z M 150 150 "/>
+<path fill-rule="nonzero" fill="rgb(100%, 50%, 50%)" fill-opacity="0.0125" stroke-width="3" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(100%, 50%, 50%)" stroke-opacity="0.05" stroke-miterlimit="10" d="M 50 20 L 107 20 L 107 147 L 50 147 Z M 50 20 "/>
+<path fill-rule="nonzero" fill="rgb(100%, 50%, 50%)" fill-opacity="0.025" stroke-width="3" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(100%, 50%, 50%)" stroke-opacity="0.1" stroke-miterlimit="10" d="M 60 20 L 117 20 L 117 147 L 60 147 Z M 60 20 "/>
+<path fill-rule="nonzero" fill="rgb(100%, 50%, 50%)" fill-opacity="0.05" stroke-width="3" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(100%, 50%, 50%)" stroke-opacity="0.2" stroke-miterlimit="10" d="M 70 20 L 127 20 L 127 147 L 70 147 Z M 70 20 "/>
+<path fill-rule="nonzero" fill="rgb(100%, 50%, 50%)" fill-opacity="0.175" stroke-width="3" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(100%, 50%, 50%)" stroke-opacity="0.7" stroke-miterlimit="10" d="M 80 20 L 137 20 L 137 147 L 80 147 Z M 80 20 "/>
+<path fill="none" stroke-width="3" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(100%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 110 85 L 150 85 "/>
+<path fill-rule="nonzero" fill="rgb(100%, 0%, 0%)" fill-opacity="1" d="M 160 85 L 150 80 L 150 90 Z M 160 85 "/>
+</svg>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="250" height="150" viewBox="0 0 250 150">
+<path fill-rule="nonzero" fill="rgb(0%, 70%, 0%)" fill-opacity="0.25" stroke-width="3" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 70%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 50 25 L 147 25 L 147 122 L 50 122 Z M 50 25 "/>
+<path fill-rule="nonzero" fill="rgb(100%, 20%, 100%)" fill-opacity="0.25" stroke-width="3" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(100%, 20%, 100%)" stroke-opacity="1" stroke-miterlimit="10" d="M 150 25 L 247 25 L 247 62 L 150 62 Z M 150 25 "/>
+<path fill="none" stroke-width="3" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(100%, 20%, 100%)" stroke-opacity="1" stroke-miterlimit="10" d="M 200 45 L 215 45 "/>
+<path fill-rule="nonzero" fill="rgb(100%, 20%, 100%)" fill-opacity="1" d="M 225 45 L 215 40 L 215 50 Z M 225 45 "/>
+<path fill="none" stroke-width="3" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(100%, 20%, 100%)" stroke-opacity="1" stroke-miterlimit="10" d="M -200 -45 L -185 -45 " transform="matrix(-1, 0.000000000000000122, -0.000000000000000122, -1, 0, 0)"/>
+<path fill-rule="nonzero" fill="rgb(100%, 20%, 100%)" fill-opacity="1" d="M 175 45 L 185 50 L 185 40 Z M 175 45 "/>
+</svg>

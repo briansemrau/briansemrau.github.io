@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="250" viewBox="0 0 300 250">
+<path fill-rule="nonzero" fill="rgb(0%, 70%, 0%)" fill-opacity="0.05" stroke-width="3" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 70%, 0%)" stroke-opacity="0.2" stroke-miterlimit="10" d="M 50 150 L 147 150 L 147 247 L 50 247 Z M 50 150 " transform="matrix(3, 0, 0, 3, -300, -250)"/>
+<path fill-rule="nonzero" fill="rgb(0%, 70%, 0%)" fill-opacity="0.25" stroke-width="3" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 70%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 150 150 L 247 150 L 247 247 L 150 247 Z M 150 150 " transform="matrix(3, 0, 0, 3, -300, -250)"/>
+<path fill-rule="nonzero" fill="rgb(100%, 50%, 50%)" fill-opacity="0.25" stroke-width="3" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(100%, 50%, 50%)" stroke-opacity="1" stroke-miterlimit="10" d="M -30 0.000000000000007105 C -30 16.56901 -16.56901 30 0 30 C 16.56901 30 30 16.56901 30 0.000000000000007105 L 30 -70 C 30 -86.56901 16.56901 -100 0 -100 C -16.56901 -100 -30 -86.56901 -30 -70 Z M -30 0.000000000000007105 " transform="matrix(3, 0, 0, 3, 120, 110)"/>
+<path fill="none" stroke-width="3" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(100%, 100%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M -191.266198 85.048465 L -176.266464 85.048948 " transform="matrix(-1.114172, -2.78543, 2.78543, -1.114172, -300, -250)"/>
+<path fill-rule="nonzero" fill="rgb(100%, 100%, 0%)" fill-opacity="1" d="M 122.144531 118.363281 L 119.359375 151.789062 L 147.214844 140.648438 Z M 122.144531 118.363281 "/>
+<path fill="none" stroke-width="3" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(80%, 80%, 20%)" stroke-opacity="0.1" stroke-miterlimit="10" d="M -150 140 L -135 140 " transform="matrix(0.000000000000000184, -3, 3, 0.000000000000000184, -300, -250)"/>
+<path fill-rule="nonzero" fill="rgb(80%, 80%, 20%)" fill-opacity="0.1" d="M 120 125 L 105 155 L 135 155 Z M 120 125 "/>
+</svg>
