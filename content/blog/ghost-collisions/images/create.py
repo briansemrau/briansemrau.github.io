@@ -133,6 +133,7 @@ with cairo.SVGSurface(f"{PATH}/resolve2.svg", W, H) as surf:
     cr.translate(-W/2, -H/2)
     
     ground(cr, W/2-50, H/2)
+    player(cr, W/2, H/2+10, 0.1)
     player(cr, W/2, H/2+1)
     arrow(cr, W/2, H/2, -90*D2R, 30)
 
@@ -254,16 +255,29 @@ with cairo.SVGSurface(f"{PATH}/contactarea.svg", W, H) as surf:
     cr.scale(2, 2)
     cr.translate(-W/2, -H/2)
 
-    ground(cr, -25, 75, 0.2)
-    ground(cr, 75, 75)
+    ground(cr, -35, 75, 0.2)
+    ground(cr, 65, 75)
     player(cr, 65, 85)
-    arrow(cr, 83, 78, -90*D2R, 25)
+    arrow(cr, 78, 78, -90*D2R, 25)
     cr.set_line_width(LW/2)
-    cr.move_to(73.5, 78)
+    cr.move_to(63.5, 78)
     cr.line_to(93, 78)
     cr.stroke()
-    cr.arc(75, 78, LW/2, 0, 2*math.pi)
+    cr.arc(65, 78, LW/2, 0, 2*math.pi)
     cr.arc(92, 78, LW/2, 0, 2*math.pi)
+    cr.fill()
+
+    # cr.set_source_rgba(0, 1, 0)
+    # cr.move_to(39, 50-4)
+    # cr.rel_line_to(4, 4)
+    # cr.rel_line_to(5, -10)
+    # cr.stroke()
+    cr.translate(39, 47)
+    cr.set_font_size(10)
+    cr.text_path("keep")
+    cr.set_source_rgba(0, 0, 0)
+    cr.stroke_preserve()
+    cr.set_source_rgba(0, 1, 0)
     cr.fill()
 
 with cairo.SVGSurface(f"{PATH}/contactarea2.svg", W, H) as surf:
@@ -283,6 +297,16 @@ with cairo.SVGSurface(f"{PATH}/contactarea2.svg", W, H) as surf:
     cr.stroke()
     cr.arc(73, 75, LW/2, 0, 2*math.pi)
     cr.arc(73, 87, LW/2, 0, 2*math.pi)
+    cr.fill()
+
+    cr.set_font_size(16)
+    cr.save()
+    cr.translate(39, 47)
+    cr.set_font_size(10)
+    cr.text_path("disable")
+    cr.set_source_rgba(0, 0, 0)
+    cr.stroke_preserve()
+    cr.set_source_rgba(1, 0, 0)
     cr.fill()
 
 W, H = 300, 300

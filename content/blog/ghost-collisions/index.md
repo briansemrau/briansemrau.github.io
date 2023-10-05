@@ -51,17 +51,17 @@ I'm aware of two solutions to ghost collisions documented online. If you want to
 
 ### Solution 1. Clipped Corners
 
-The easiest solution is to clip the corners of the player's collision shape. This prevents the player from getting completely stuck on corners.
+The easiest workaround is to clip the corners of the player's collision shape. This prevents the player from getting completely stuck on corners.
 
-Another form of the clipped corners solution is to use pill, or capsule shapes for the player collision.
+Another form of the clipped corners solution is to use pill, or capsule shapes for the player collision, or to clip the corners on the terrain itself.
 
 <!-- ![image of clipped corners](https://www.iforce2d.net/image/ghostvertices-clipped.png)\
 _(image from iforce2d)_ -->
 ![image of clipped corners](images/clippedcorner.svg) &nbsp; &nbsp; &nbsp; &nbsp; ![image of a capsule shape](images/clippedcorner2.svg)
 
 Pros:
-- Very simple to implement
-- Prevents the worst case scenario (player completely stuck)
+- Very easy to implement
+- Prevents the worst case scenario (the player won't get completely stuck)
 
 Cons:
 - Can cause the player to "hop" and change velocity when moving between two surfaces.
@@ -74,12 +74,12 @@ Read more about this solution [from iforce2d](https://www.iforce2d.net/b2dtut/gh
 
 Box2D provides a solution to the ghost collision problem in the form of chain shapes. This is intended to solve a slightly different scenario created by two edge shapes rather than two convex polygons.
 
-I won't explain here how chain shapes work (instead see [Erin Catto's blog](https://box2d.org/posts/2020/06/ghost-collisions/)), but in summary, chain shapes allow you to specify a sequence of edges with **ghost vertices** to define geometry for terrain, where the contact normals are calculated differently to handle this special case, preventing the player from getting hung up on corners.
+I won't explain here how chain shapes work (instead see [Erin Catto's blog](https://box2d.org/posts/2020/06/ghost-collisions/)), but in summary, chain shapes allow you to specify a sequence of edges with _ghost vertices_ to define geometry for terrain, where the contact normals are calculated differently to handle this special case, preventing the player from getting hung up on corners.
 
 ![image of a box2d chain shape](images/chainshape.svg)
 
 Pros:
-- Handles ghost collisions
+- Actually prevents ghost collisions, instead of working around them
 - Built-in solution, no extra code required (if using Box2D)
 
 Cons:
@@ -104,17 +104,17 @@ Cons:
 
 ## Why do we need another solution?
 
-If you've worked on a platformer game before, you might already know what's missing. There are so many features we haven't considered yet.
+If you've worked on or even just played a platformer game before, you might already know what's missing. There are so many features we haven't considered yet.
 
 ### Requirements:
 
 While working on Goober Dash, I needed a solution that:
 1. Is performance friendly (no polygon clipping algorithms running on the server),
-2. Is invisible to designers (no clipping terrain corners, no handcrafted chain shapes),
-3. Doesn't create hollow terrain or affect player movement,
-5. Actually fixes the issue where the player transitions between different collision bodies (moving platforms, one-way platforms, dynamic objects and boxes, etc.)
+2. Is invisible to designers (no handcrafted chain shapes),
+3. Doesn't create hollow terrain or weirdly affect player movement,
+4. Actually fixes the issue where the player transitions between different collision bodies (moving platforms, one-way platforms, dynamic objects and boxes, etc.)
 
-Interesting to note: that last requirement hasn't been mentioned before in anything I've read online. Surely I'm not the first to deal with it?
+I have yet to find any solution online that handles all of these requirements. Surely I'm not the first to be bothered?
 
 Let's visualize this fourth requirement.
 
@@ -134,8 +134,8 @@ So, how can we do better? It's actually quite simple, as long as you have collis
 
 We disable contacts that meet all of the following criteria:
 1. The contact normal opposes the player's velocity (which may cause the player to get caught)
-2. Face-face collision (which has two contact manifold points, so we can calculate contact "area")
-3. The contact area is very small (short distance between manifold points)
+2. It is a face-face collision (which has two contact manifold points, so we can calculate the contact "area")
+3. The calculated contact area is very small
 
 <!-- This is what contact manifold points and "contact area" look like in Box2D:\ -->
 ![image of contact area manifold points](images/contactarea.svg) &nbsp; &nbsp; &nbsp; &nbsp; ![image 2 of contact area manifold points](images/contactarea2.svg)
@@ -185,11 +185,11 @@ _(!! This code is partially copy-pasted from our project and then modified for t
 Let me know if I got anything wrong, or if you've come across this solution before.\
 Thanks for reading! 😊
 
-Notes:
+**Notes:**
 - This approach might work for other platformer problems, like [fudging corner collisions](https://twitter.com/MaddyThorson/status/1238338579513798656). I suspect my implementation could be adapted by simply increasing the distance threshold.
-- I haven't designed this for anything other than axis-aligned rectangles. You may still encounter ghost collisions with point-face contacts. I wonder if the filter could use a heuristic based on penetration instead of contact area, e.g.:
+- I haven't designed this for anything other than axis-aligned rectangles. You may still encounter ghost collisions with point-face contacts. I have a hunch that there is an alternate approach based on penetration instead of contact area, e.g.:
 ```cpp
-    // alternate method
+    // alternate method?
     b2Vec2 player_dir = player_body->GetLinearVelocity();
     player_dir.Normalize();
     float separation = worldManifold.pointCount > 1 ? (worldManifold.separations[0]+worldManifold.separations[1])*0.5 : worldManifold.separations[0];
