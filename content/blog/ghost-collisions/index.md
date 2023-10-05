@@ -35,7 +35,8 @@ While a body slides across the surface and encounters a new collider, there is a
 <!-- ![image comparing two collision situations](https://www.iforce2d.net/image/ghostvertices-resolve2.png)\
 _The corner collision scenario. (image from iforce2d)_ -->
 
-![corner collision situation 1](images/corner1.svg)![corner collision situation 2](images/corner2.svg)
+![corner collision situation 1](images/corner1.svg)![corner collision situation 2](images/corner2.svg)\
+_(overlap exaggerated for demonstration purposes)_
 
 In the first, the contact normal is pointing up, and the player continues sliding as expected. In the second, the contact normal is pointing horizontally, blocking the player from moving.
 
@@ -131,12 +132,17 @@ These features are critical to any platformer, and no solution I found online co
 
 So, how can we do better? It's actually quite simple, as long as you have collision callbacks providing you the ability to filter collisions. With Box2D we can use a [presolve callback](https://box2d.org/documentation/md__d_1__git_hub_box2d_docs_dynamics.html#autotoc_md110) to detect the ghost collision scenario and disable the collision.
 
-We filter contacts that meet the following criteria:
-1. Face-face collision (two contact manifold points)
-2. The contact normal opposes the player's velocity
+We disable contacts that meet all of the following criteria:
+1. The contact normal opposes the player's velocity (which may cause the player to get caught)
+2. Face-face collision (which has two contact manifold points, so we can calculate contact "area")
 3. The contact area is very small (short distance between manifold points)
 
+<!-- This is what contact manifold points and "contact area" look like in Box2D:\ -->
+![image of contact area manifold points](images/contactarea.svg) &nbsp; &nbsp; &nbsp; &nbsp; ![image 2 of contact area manifold points](images/contactarea2.svg)
+
 Because these contacts cover such a small area, we can safely disable the collision for one frame without any noticeable overlap error. Once the two bodies have a larger contact area, the collision will be re-enabled and the solver will separate the bodies.
+
+![image of the solution](images/solution.svg)
 
 Here's the code:
 ```cpp
@@ -160,11 +166,14 @@ void PreSolve(b2Contact* contact, const b2Manifold* oldManifold) {
     // Prevent snags (ghost collisions) for face-face collisions
     if (b2Dot(normal, player_body->GetLinearVelocity()) >= 0.0) {
         if (worldManifold.pointCount > 1) {
-            float dist = (worldManifold.points[0] - worldManifold.points[1]).Length();
-            // dist threshold needs to be at least `2.0 * b2_linearSlop`
-            // (box2d solver overlap threshold)
-            // for wiggle room let's double it
-            if (dist < 4.0 * b2_linearSlop) {
+            // our threshold needs to be at least `2.0 * b2_linearSlop`
+            // (which is the deepest overlap we should ever encounter)
+            // to be extra safe let's double it
+            constexpr float overlap_slop = 4.0 * b2_linearSlop;
+
+            float contact_area = (worldManifold.points[0] - worldManifold.points[1]).Length();
+            // if contact_area > threshold, then this is a wall, not an internal collision
+            if (contact_area < overlap_slop) {
                 contact.SetEnabled(false); // only disabled for 1 frame
             }
         }
@@ -178,12 +187,13 @@ Thanks for reading! 😊
 
 Notes:
 - This approach might work for other platformer problems, like [fudging corner collisions](https://twitter.com/MaddyThorson/status/1238338579513798656). I suspect my implementation could be adapted by simply increasing the distance threshold.
-- I haven't designed this for anything other than axis-aligned rectangles. You may still deal with ghost collisions with point-face contacts. I wonder if the filter could use a heuristic based on penetration instead of contact area, e.g.:
+- I haven't designed this for anything other than axis-aligned rectangles. You may still encounter ghost collisions with point-face contacts. I wonder if the filter could use a heuristic based on penetration instead of contact area, e.g.:
 ```cpp
     // alternate method
     b2Vec2 player_dir = player_body->GetLinearVelocity();
     player_dir.Normalize();
-    if (-worldManifold.separation < 2.0*b2_linearSlop * b2Dot(-normal, player_dir)) {
+    float separation = worldManifold.pointCount > 1 ? (worldManifold.separations[0]+worldManifold.separations[1])*0.5 : worldManifold.separations[0];
+    if (-separation < 2.0*b2_linearSlop * b2Dot(-normal, player_dir)) {
         contact.SetEnabled(false);
     }
 ```

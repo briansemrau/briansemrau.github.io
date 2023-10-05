@@ -108,6 +108,13 @@ with cairo.SVGSurface(f"{PATH}/ghostcollision2.svg", W, H) as surf:
 
     cross(cr, 160, 150-130/2)
 
+    cr.set_source_rgba(1, 1, 1)
+    cr.set_font_size(40)
+    cr.translate(150, 30)
+    cr.text_path("?")
+    cr.fill()
+
+
 W, H = 250, 250
 with cairo.SVGSurface(f"{PATH}/resolve1.svg", W, H) as surf:
     cr = cairo.Context(surf)
@@ -240,3 +247,57 @@ with cairo.SVGSurface(f"{PATH}/platform2.svg", W, H) as surf:
     cr.set_source(g)
     cr.stroke()
 
+W, H = 150, 150
+with cairo.SVGSurface(f"{PATH}/contactarea.svg", W, H) as surf:
+    cr = cairo.Context(surf)
+    cr.translate(W/2, H/2)
+    cr.scale(2, 2)
+    cr.translate(-W/2, -H/2)
+
+    ground(cr, -25, 75, 0.2)
+    ground(cr, 75, 75)
+    player(cr, 65, 85)
+    arrow(cr, 83, 78, -90*D2R, 25)
+    cr.set_line_width(LW/2)
+    cr.move_to(73.5, 78)
+    cr.line_to(93, 78)
+    cr.stroke()
+    cr.arc(75, 78, LW/2, 0, 2*math.pi)
+    cr.arc(92, 78, LW/2, 0, 2*math.pi)
+    cr.fill()
+
+with cairo.SVGSurface(f"{PATH}/contactarea2.svg", W, H) as surf:
+    cr = cairo.Context(surf)
+    cr.translate(W/2, H/2)
+    cr.scale(2, 2)
+    cr.translate(-W/2, -H/2)
+
+    ground(cr, -30, 75, 0.2)
+    ground(cr, 70, 75)
+    player(cr, 50, 90)
+    arrow(cr, 73, 81, math.pi, 25)
+    cr.set_line_width(LW/2)
+
+    cr.move_to(73, 75)
+    cr.line_to(73, 87)
+    cr.stroke()
+    cr.arc(73, 75, LW/2, 0, 2*math.pi)
+    cr.arc(73, 87, LW/2, 0, 2*math.pi)
+    cr.fill()
+
+W, H = 300, 300
+with cairo.SVGSurface(f"{PATH}/solution.svg", W, H) as surf:
+    cr = cairo.Context(surf)
+    cr.translate(W/2, H/2)
+    cr.scale(2, 2)
+    cr.translate(-W/2, -H/2)
+
+    ground(cr, 50, 150, 0.2)
+    ground(cr, 150, 150)
+    player(cr, 130, 175)
+    arrow(cr, 130, 150-130/2, 0, 50, (1, 0, 0))
+    arrow(cr, 153, 160, -180*D2R, 25)
+    arrow(cr, 125, 162, -90*D2R, 25, (.8, .8, .2, 0.15))
+
+    cr.set_line_width(LW*0.5)
+    cross(cr, 145, 160, 5)
