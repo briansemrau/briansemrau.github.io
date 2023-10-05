@@ -1,7 +1,7 @@
 +++
 title = "Dealing with Ghost Collisions"
 date = "2023-10-03T10:45:26-04:00"
-description = "Evaluating existing methods to solve the 2D physics ghost collision problem, and a new solution I've come up with that's better than them all."
+description = "Evaluating existing methods to solve the 2D physics ghost collision problem, and a new solution I've come up with that I think is better."
 tags = ["box2d", "c++", "godot", "winterpixel", "goober dash"]
 draft = false
 +++
