@@ -3,7 +3,7 @@ languageCode = 'en-us'
 title = "Brian Semrau's Developer Blog"
 author = "Brian Semrau"
 copyright = "Copyright © 2023, Brian Semrau."
-theme = 'hugo-bearblog'
+theme = ['hugo-bearblog', 'my-shortcodes']
 
 enableRobotsTXT = true
 
